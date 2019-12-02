@@ -4,8 +4,12 @@ package pb;
 
 option go_package = "pb";
 
+import "google/api/annotations.proto";
+
 service PingAPI {
-  rpc Ping(PingRequest) returns (PingResponse);
+  rpc Ping(PingRequest) returns (PingResponse) {
+    option (google.api.http).get = "/ping";
+  };
 }
 
 message PingRequest {}
